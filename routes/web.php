@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfesseursController;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ Route::get('index', function () {
 
 Route::get('create', function () {
     return view('create');
-});
+})->middleware('auth', 'verified');
 Route::get('show', function () {
     return view('show');
 });
@@ -34,4 +36,4 @@ Auth::routes();
 
 Route::get('/professeurs', [App\Http\Controllers\HomeController::class, 'index'])->name('professeurs');
 
-Route::resource('professeurs',ProfesseursController::class);
+Route::resource('professeurs', ProfesseursController::class);

@@ -21,7 +21,7 @@ class ProfesseursController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->id == 3) {
+        if (auth()->user()->id == 1) {
             $professeurs = Professeurs::all();
             return view('index', compact('professeurs'));
         } else {
